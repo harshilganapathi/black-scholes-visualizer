@@ -1,0 +1,11 @@
+Flask
+setuptools
+wheel
+Flask-SocketIO
+python-socketio
+eventlet
+numpy
+scipy
+plotly
+Flask-SQLAlchemy
+

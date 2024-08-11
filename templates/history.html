@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transaction History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Spot Price</th>
+                <th>Strike Price</th>
+                <th>Time to Expiration</th>
+                <th>Risk-Free Rate</th>
+                <th>Volatility</th>
+                <th>Option Type</th>
+                <th>Option Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.timestamp }}</td>
+                <td>{{ transaction.spot_price }}</td>
+                <td>{{ transaction.strike_price }}</td>
+                <td>{{ transaction.time_to_expiration }}</td>
+                <td>{{ transaction.risk_free_rate }}</td>
+                <td>{{ transaction.volatility }}</td>
+                <td>{{ transaction.option_type }}</td>
+                <td>{{ transaction.option_price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('index') }}">Back to Calculator</a>
+</body>
+</html>
